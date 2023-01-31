@@ -13,7 +13,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        // echo "<h1>Ini adalah index</h1>";
+
+        return response()->json("ini adalah index");
     }
 
     /**
@@ -21,9 +23,9 @@ class KategoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return response()->json($request);
     }
 
     /**
@@ -45,7 +47,7 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json("menampilkan 1 data");
     }
 
     /**
@@ -68,7 +70,7 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return response()->json("ini update");
     }
 
     /**
@@ -79,6 +81,6 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json("ini delete $id");
     }
 }
