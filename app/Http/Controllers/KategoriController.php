@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -13,9 +14,9 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        // echo "<h1>Ini adalah index</h1>";
+        $data = Kategori::all();
 
-        return response()->json("ini adalah index");
+        return response()->json($data);
     }
 
     /**
@@ -47,7 +48,9 @@ class KategoriController extends Controller
      */
     public function show($id)
     {
-        return response()->json("menampilkan 1 data");
+        $data = Kategori::where('idkategori', $id)->get();
+
+        return response()->json($data);
     }
 
     /**
