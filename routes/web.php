@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+use App\Http\Controllers\PelangganController;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -39,7 +41,7 @@ $router->group(['prefix' => 'api'], function() use($router){
 
     $router->delete('pelanggan/{id}', ['uses' => 'PelangganController@destroy']);
 
-
+    $router->put('pelanggan/{id}', ['uses' => 'PelangganController@update']);
 
 });
 
