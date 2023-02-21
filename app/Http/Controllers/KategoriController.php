@@ -26,9 +26,14 @@ class KategoriController extends Controller
      */
     public function create(Request $request)
     {
-        Kategori::create($request->all());
+        $this->validate($request, [
+            'kategori' => 'required | unique:kategoris',
+            'keterangan' => 'required'
+        ]);
 
-        return response()->json('Data sudah dimasukkan');
+        $kategori = Kategori::create($request->all());
+
+        return response()->json($kategori);
     }
 
     /**
@@ -76,7 +81,7 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         Kategori::where('idkategori', $id)->update($request->all());
-        
+
         return response()->json("data sudah di update");
     }
 
