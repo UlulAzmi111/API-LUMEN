@@ -86,6 +86,8 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        return response()->json("ini delete $id");
+        Kategori::where('idkategori', $id)->delete();
+
+        return response()->json("Data sudah dihapus");
     }
 }
