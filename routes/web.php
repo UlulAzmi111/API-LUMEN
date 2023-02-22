@@ -45,6 +45,8 @@ $router->group(['prefix' => 'api'], function() use($router){
 
     // -----------------------------------------------------------------------
 
+    $router->get('menu', ['uses' => 'MenuController@index']);
+
     $router->post('menu', ['uses' => 'MenuController@create']);
 
 });
