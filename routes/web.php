@@ -23,7 +23,7 @@ $router->get('/', function () use ($router) {
 $router->get('login', ['uses' => 'LoginController@index']);
 
 
-$router->group(['prefix' => 'api', 'middleware' => 'user'], function() use($router){
+$router->group(['prefix' => 'api', 'middleware' => 'auth'], function() use($router){
 
     $router->get('kategori', ['uses' => 'KategoriController@index']);
 

@@ -18,6 +18,7 @@ $app->routeMiddleware([
     'user' => App\Http\Middleware\UserMiddleware::class
 ]);
 
+$app->register(App\Providers\AuthServiceProvider::class);
 
 $app->withFacades();
 
