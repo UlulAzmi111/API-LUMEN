@@ -13,6 +13,12 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
+$app->routeMiddleware([
+    'auth' => App\Http\Middleware\Authenticate::class,
+    'user' => App\Http\Middleware\UserMiddleware::class
+]);
+
+
 $app->withFacades();
 
 $app->withEloquent();
