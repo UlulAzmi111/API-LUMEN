@@ -34,7 +34,14 @@ class PelangganController extends Controller
 
         $pelanggan = Pelanggan::create($request->all());
 
-        return response()->json($pelanggan);
+        if ($pelanggan) {
+
+            return response()->json([
+                'pesan' => 'Data berhasil ditambahkan',
+                'data' => $pelanggan
+            ]);
+
+        }
     }
 
     /**
@@ -94,8 +101,13 @@ class PelangganController extends Controller
      */
     public function destroy($id)
     {
-        Pelanggan::where('idpelanggan', $id)->delete();
+        $pelanggan = Pelanggan::where('idpelanggan', $id)->delete();
 
-        return response()->json('Data sudah dihapus');
+        if ($pelanggan) {
+            return response()->json([
+                'pesan' => 'Data Berhasil Dihapus !',
+                'data' => $pelanggan
+            ]);
+        }
     }
 }
